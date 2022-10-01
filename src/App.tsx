@@ -1,19 +1,18 @@
 import React from 'react';
-import { Container, Box } from '@mui/material';
+import { Container, Box, Input, TextareaAutosize } from '@mui/material';
 
 import logo from './logo.svg';
 import './App.css';
 import { Header } from './components';
 import Layout from './components/Layout';
 import Block from './components/Block';
-import Menu from './components/Menu';
 
 export interface Page {
   title: string;
   content: React.ReactNode
 }
 
-const pages:Page[] = [
+const pages: Page[] = [
   {
     title: 'About Product',
     content: 'About',
@@ -36,8 +35,18 @@ const App: React.FC = () => {
   return (
     <div className="App" >
       <Layout>
-        <Header pages={pages} />
-        <Menu pages={pages} />
+        <Container
+          sx={{
+            width: '100vw',
+            height: '100vh',
+            background: 'red',
+            display:'flex',
+            flexDirection:'column',
+            justifyContent:'center'
+          }}
+        >
+          <Block />
+        </Container>
       </Layout>
     </div>
   );

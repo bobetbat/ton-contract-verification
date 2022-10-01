@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography } from '@mui/material';
+import { TextareaAutosize, Input, Button, Card, Typography, CardHeader, CardActions, CardContent } from '@mui/material';
 
 
 type Props = {
@@ -7,14 +7,32 @@ type Props = {
   title?: React.ReactNode;
 };
 
-const Block: React.FC<Props> = ({ children, title }) => {
+const Block: React.FC<Props> = ({ }) => {
   return (
-    <Container
-      sx={{ width: '100vw', height: '100vh', background: 'red' }}
-    >
-      <Typography>{title}</Typography>
-      {children}
-    </Container>
+    <Card>
+      <CardContent
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1
+        }}
+      >
+        <Typography> Verify</Typography>
+
+        <Input type='text' placeholder='Contract address' />
+        <TextareaAutosize
+          // maxRows={4}
+          aria-label="maximum height"
+          placeholder="Contract code"
+          //   defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
+          // ut labore et dolore magna aliqua."
+          style={{ width: '100%', minHeight: '40vh' }}
+        />
+      </CardContent>
+      <CardActions>
+        <Button variant='contained' onClick={() => { }}>Verify</Button>
+      </CardActions>
+    </Card>
   );
 }
 
